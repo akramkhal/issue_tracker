@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Обновить Задачу{% endblock %}
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1>Обновить задачу</h1>
+            <p class="text-muted">{{ task.summary }}</p>
+            {% include 'partial/form.html' with button_value='Обновить' %}
+        </div>
+    </div>
+{% endblock %}
