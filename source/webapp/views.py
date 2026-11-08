@@ -67,3 +67,15 @@ class TaskUpdateView(View):
             task.save()
             return redirect('task_detail', pk=task.pk)
         return render(request, self.template_name, {'form': form, 'task': task})
+
+class TaskDeleteView(View):
+    template_name = 'task_delete.html'
+
+    def get(self, request, *args, **kwargs):
+        task = get_object_or_404(Task, pk=kwargs['pk'])
+        return render(request, self.template_name, {'task': task})
+
+    def post(self, request, *args, **kwargs):
+        task = get_object_or_404(Task, pk=kwargs['pk'])
+        task.delete()
+        return redirect('index')

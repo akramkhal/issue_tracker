@@ -12,7 +12,8 @@
                 <p class="text-muted small mb-2">Создано: {{ task.created_at|date:"d.m.Y H:i" }} <br>
                 Обновлено: {{ task.updated_at|date:"d.m.Y H:i" }}</p>
                 <a href="{% url 'index' %}" class="btn btn-outline-primary btn-sm">Назад</a>
-                <a href="{% url 'task_update' task.pk %}" class="btn btn-danger btn-sm">Обновить</a>
+                <a href="{% url 'task_update' task.pk %}" class="btn btn-success btn-sm">Обновить</a>
+                <a href="{% url 'task_delete' task.pk %}" class="btn btn-danger btn-sm">Удалить</a>
             </div>
         </div>
     </div>
