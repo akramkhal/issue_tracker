@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}{{ task.summary }}{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-7">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">{{ task.summary }}</h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary">Статус: {{ task.status }}</h6>
+                <h6 class="card-subtitle mb-2 text-body-secondary">Тип: {{ task.type }}</h6>
+                <p style="white-space: pre-wrap;">{{ task.description|default:"Нет описания" }}</p>
+                <p class="text-muted small mb-2">Создано: {{ task.created_at|date:"d.m.Y H:i" }} <br>
+                Обновлено: {{ task.updated_at|date:"d.m.Y H:i" }}</p>
+                <a href="{% url 'index' %}" class="btn btn-outline-primary btn-sm">Назад</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Список задач{% endblock %}
+{% block content %}
+    <h1>Список задач</h1>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        {% for task in tasks %}
+            <div class="col">
+                {% include 'partial/task_card.html' %}
+            </div>
+        {% empty %}
+            <div class="col alert alert-info"> Задач пока нет</div>
+        {% endfor %}
+    </div>
+{% endblock %}
