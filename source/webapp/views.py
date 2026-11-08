@@ -36,12 +36,14 @@ class TaskCreateView(View):
             summary = form.cleaned_data.get('summary')
             description = form.cleaned_data.get('description')
             status = form.cleaned_data.get('status')
-            task_type = form.cleaned_data.get('type')
+            task_type = form.cleaned_data.get('types')
             task = Task.objects.create(summary=summary, description=description,
-                                       status=status, type=task_type)
+                                       status=status)
+            task.types.set(task_type)
             return redirect('task_detail', pk=task.pk)
 
         return render(request, self.template_name, {'form': form})
+
 
 class TaskUpdateView(View):
     template_name = 'task_update.html'
@@ -52,7 +54,7 @@ class TaskUpdateView(View):
             'summary': task.summary,
             'description': task.description,
             'status': task.status,
-            'type': task.type
+            'types': task.types.all()
         })
         return render(request, self.template_name, {'form': form, 'task': task})
 
@@ -63,10 +65,11 @@ class TaskUpdateView(View):
             task.summary = form.cleaned_data.get('summary')
             task.description = form.cleaned_data.get('description')
             task.status = form.cleaned_data.get('status')
-            task.type = form.cleaned_data.get('type')
             task.save()
+            task.types.set(form.cleaned_data.get('types'))
             return redirect('task_detail', pk=task.pk)
         return render(request, self.template_name, {'form': form, 'task': task})
+
 
 class TaskDeleteView(View):
     template_name = 'task_delete.html'

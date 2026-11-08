@@ -7,7 +7,7 @@
             <div class="card-body">
                 <h5 class="card-title">{{ task.summary }}</h5>
                 <h6 class="card-subtitle mb-2 text-body-secondary">Статус: {{ task.status }}</h6>
-                <h6 class="card-subtitle mb-2 text-body-secondary">Тип: {{ task.type }}</h6>
+                <h6 class="card-subtitle mb-2 text-body-secondary">Типы: {% for t in task.types.all %}{{ t.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</h6>
                 <p style="white-space: pre-wrap;">{{ task.description|default:"Нет описания" }}</p>
                 <p class="text-muted small mb-2">Создано: {{ task.created_at|date:"d.m.Y H:i" }} <br>
                 Обновлено: {{ task.updated_at|date:"d.m.Y H:i" }}</p>
