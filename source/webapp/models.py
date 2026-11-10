@@ -1,9 +1,12 @@
 from django.db import models
+from webapp.validators import validate_capitalized, validate_min_length
 
 
 class Task(models.Model):
-    summary = models.CharField(max_length=100, null=False, blank=False, verbose_name='Краткое описание')
-    description = models.TextField(null=True, blank=True, verbose_name='Полное описание')
+    summary = models.CharField(max_length=100, null=False, blank=False, verbose_name='Краткое описание',
+                               validators=[validate_capitalized])
+    description = models.TextField(null=True, blank=True, verbose_name='Полное описание',
+                                   validators=[validate_min_length])
     status = models.ForeignKey('webapp.TaskStatus', on_delete=models.PROTECT, related_name='tasks', verbose_name='Статус')
     types = models.ManyToManyField('webapp.TaskType', related_name='tasks', verbose_name='Типы')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Время создания')
