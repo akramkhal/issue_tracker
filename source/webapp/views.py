@@ -33,14 +33,9 @@ class TaskCreateView(View):
         form = TaskForm(data=request.POST)
 
         if form.is_valid():
-            summary = form.cleaned_data.get('summary')
-            description = form.cleaned_data.get('description')
-            status = form.cleaned_data.get('status')
-            task_type = form.cleaned_data.get('types')
-            task = Task.objects.create(summary=summary, description=description,
-                                       status=status)
-            task.types.set(task_type)
-            return redirect('task_detail', pk=task.pk)
+            if form.is_valid():
+                task = form.save()
+                return redirect('task_detail', pk=task.pk)
 
         return render(request, self.template_name, {'form': form})
 
@@ -49,24 +44,14 @@ class TaskUpdateView(View):
     template_name = 'task_update.html'
 
     def get(self, request, *args, **kwargs):
-        task = get_object_or_404(Task, pk=kwargs['pk'])
-        form = TaskForm(initial={
-            'summary': task.summary,
-            'description': task.description,
-            'status': task.status,
-            'types': task.types.all()
-        })
+        form = TaskForm(instance=task)
         return render(request, self.template_name, {'form': form, 'task': task})
 
     def post(self, request, *args, **kwargs):
         task = get_object_or_404(Task, pk=kwargs['pk'])
-        form = TaskForm(data=request.POST)
+        form = TaskForm(data=request.POST, instance=task)
         if form.is_valid():
-            task.summary = form.cleaned_data.get('summary')
-            task.description = form.cleaned_data.get('description')
-            task.status = form.cleaned_data.get('status')
-            task.save()
-            task.types.set(form.cleaned_data.get('types'))
+            form.save()
             return redirect('task_detail', pk=task.pk)
         return render(request, self.template_name, {'form': form, 'task': task})
 
