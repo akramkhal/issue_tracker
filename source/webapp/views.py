@@ -44,6 +44,7 @@ class TaskUpdateView(View):
     template_name = 'task_update.html'
 
     def get(self, request, *args, **kwargs):
+        task = get_object_or_404(Task, pk=kwargs['pk'])
         form = TaskForm(instance=task)
         return render(request, self.template_name, {'form': form, 'task': task})
 
