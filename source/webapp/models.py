@@ -11,6 +11,8 @@ class Task(models.Model):
     types = models.ManyToManyField('webapp.TaskType', related_name='tasks', verbose_name='Типы')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Время создания')
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Время обновления')
+    project = models.ForeignKey('webapp.Project', on_delete=models.CASCADE, related_name='tasks',
+                                verbose_name='Проект')
 
     def __str__(self):
         return self.summary
@@ -41,3 +43,16 @@ class TaskStatus(models.Model):
         verbose_name = "Статус"
         verbose_name_plural = "Статусы"
 
+
+class Project(models.Model):
+    start_date = models.DateField(verbose_name='Дата начала')
+    end_date = models.DateField(null=True, blank=True, verbose_name='Дата окончания')
+    name = models.CharField(max_length=100, verbose_name='Название')
+    description = models.TextField(max_length=500, verbose_name='Описание')
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Проект'
+        verbose_name_plural = 'Проекты'
