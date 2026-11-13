@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}{{ project.name }}{% endblock %}
+{% block content %}
+    <div class="card shadow-sm mb-4">
+        <div class="card-body">
+            <h1 class="h3">{{ project.name }}</h1>
+            <p class="text-muted small mb-2">
+                {{ project.start_date|date:"d.m.Y" }} — {{ project.end_date|date:"d.m.Y"|default:"не указана" }}
+            </p>
+            <p style="white-space: pre-wrap;">{{ project.description }}</p>
+            <div class="d-flex gap-2">
+                <a href="{% url 'index' %}" class="btn btn-outline-primary btn-sm">Назад</a>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="h4 mb-3">Задачи проекта</h2>
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        {% for task in tasks %}
+            <div class="col">
+                {% include 'partial/task_card.html' %}
+            </div>
+        {% empty %}
+            <div class="col-12">
+                <div class="alert alert-info">В проекте пока нет задач</div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

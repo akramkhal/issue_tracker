@@ -1,9 +1,15 @@
 <div class="card h-100">
-  <div class="card-body">
-    <h5 class="card-title">{{ task.summary }}</h5>
-    <h6 class="card-subtitle mb-2 text-body-secondary">Статус: {{ task.status }}</h6>
-    <h6 class="card-subtitle mb-2 text-body-secondary">Типы: {% for t in task.types.all %}{{ t.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</h6>
-    <p class="text-muted small mb-2 mt-2">{{ task.created_at|date:"d.m.Y H:i" }}</p>
-    <a href="{% url 'task_detail' task.pk %}" class="btn btn-outline-primary btn-sm">Подробнее</a>
-  </div>
+    <div class="card-body">
+        <h5 class="card-title">{{ task.summary }}</h5>
+        <h6 class="card-subtitle mb-2 text-body-secondary">Статус: {{ task.status }}</h6>
+        <h6 class="card-subtitle mb-2 text-body-secondary">
+            Типы: {% for t in task.types.all %}{{ t.name }}{% if not forloop.last %}, {% endif %}{% endfor %}
+        </h6>
+        <p class="text-muted small mb-2 mt-2">{{ task.created_at|date:"d.m.Y H:i" }}</p>
+        <div class="d-flex gap-2">
+            <a href="{% url 'task_detail' task.pk %}" class="btn btn-outline-primary btn-sm">Подробнее</a>
+            <a href="{% url 'task_update' task.pk %}" class="btn btn-outline-success btn-sm">Обновить</a>
+            <a href="{% url 'task_delete' task.pk %}" class="btn btn-outline-danger btn-sm">Удалить</a>
+        </div>
+    </div>
 </div>
