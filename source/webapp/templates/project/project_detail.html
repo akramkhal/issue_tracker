@@ -11,6 +11,7 @@
             <div class="d-flex gap-2">
                 <a href="{% url 'index' %}" class="btn btn-outline-primary btn-sm">Назад</a>
                 <a href="{% url 'project_update' project.pk %}" class="btn btn-success btn-sm">Обновить проект</a>
+                <a href="{% url 'project_delete' project.pk %}" class="btn btn-danger btn-sm">Удалить проект</a>
             </div>
         </div>
     </div>
