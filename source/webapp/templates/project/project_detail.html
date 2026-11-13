@@ -10,6 +10,7 @@
             <p style="white-space: pre-wrap;">{{ project.description }}</p>
             <div class="d-flex gap-2">
                 <a href="{% url 'index' %}" class="btn btn-outline-primary btn-sm">Назад</a>
+                <a href="{% url 'project_update' project.pk %}" class="btn btn-success btn-sm">Обновить проект</a>
             </div>
         </div>
     </div>

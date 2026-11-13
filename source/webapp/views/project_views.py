@@ -1,8 +1,9 @@
 from django.db.models import Q
+from django.urls import reverse
 from django.utils.http import urlencode
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
 
-from webapp.forms import SearchForm
+from webapp.forms import SearchForm, ProjectForm
 from webapp.models import Project
 
 
@@ -52,3 +53,21 @@ class ProjectDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         context['tasks'] = self.object.tasks.order_by('-created_at')
         return context
+
+
+class ProjectCreateView(CreateView):
+    model = Project
+    form_class = ProjectForm
+    template_name = 'project/project_create.html'
+
+    def get_success_url(self):
+        return reverse('project_detail', kwargs={'pk': self.object.pk})
+
+
+class ProjectUpdateView(UpdateView):
+    model = Project
+    form_class = ProjectForm
+    template_name = 'project/project_update.html'
+
+    def get_success_url(self):
+        return reverse('project_detail', kwargs={'pk': self.object.pk})
