@@ -1,18 +1,17 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.http import HttpResponseRedirect
+from django.shortcuts import get_object_or_404
 from django.urls import reverse
-from django.views.generic import View, TemplateView, CreateView
+from django.views.generic import DetailView, CreateView, UpdateView, DeleteView
 
 from webapp.forms import TaskForm
 from webapp.models import Task, Project
 
 
-class TaskDetailView(TemplateView):
+class TaskDetailView(DetailView):
     template_name = 'task/task_detail.html'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['task'] = get_object_or_404(Task, pk=kwargs['pk'])
-        return context
+    def get_queryset(self):
+        return Task.objects.filter(is_deleted=False)
 
 
 class TaskCreateView(CreateView):
@@ -37,32 +36,27 @@ class TaskCreateView(CreateView):
         return reverse('project_detail', kwargs={'pk': self.project.pk})
 
 
-class TaskUpdateView(View):
+class TaskUpdateView(UpdateView):
+    form_class = TaskForm
     template_name = 'task/task_update.html'
 
-    def get(self, request, *args, **kwargs):
-        task = get_object_or_404(Task, pk=kwargs['pk'])
-        form = TaskForm(instance=task)
-        return render(request, self.template_name, {'form': form, 'task': task})
+    def get_queryset(self):
+        return Task.objects.filter(is_deleted=False)
 
-    def post(self, request, *args, **kwargs):
-        task = get_object_or_404(Task, pk=kwargs['pk'])
-        form = TaskForm(data=request.POST, instance=task)
-        if form.is_valid():
-            form.save()
-            return redirect('task_detail', pk=task.pk)
-        return render(request, self.template_name, {'form': form, 'task': task})
+    def get_success_url(self):
+        return reverse('task_detail', kwargs={'pk': self.object.pk})
 
 
-class TaskDeleteView(View):
+class TaskDeleteView(DeleteView):
     template_name = 'task/task_delete.html'
 
-    def get(self, request, *args, **kwargs):
-        task = get_object_or_404(Task, pk=kwargs['pk'])
-        return render(request, self.template_name, {'task': task})
+    def get_queryset(self):
+        return Task.objects.filter(is_deleted=False)
 
-    def post(self, request, *args, **kwargs):
-        task = get_object_or_404(Task, pk=kwargs['pk'])
-        project_pk = task.project.pk
-        task.delete()
-        return redirect('project_detail', pk=project_pk)
+    def form_valid(self, form):
+        self.object.is_deleted = True
+        self.object.save()
+        return HttpResponseRedirect(self.get_success_url())
+
+    def get_success_url(self):
+        return reverse('project_detail', kwargs={'pk': self.object.project.pk})

@@ -13,6 +13,7 @@ class Task(models.Model):
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Время обновления')
     project = models.ForeignKey('webapp.Project', on_delete=models.CASCADE, related_name='tasks',
                                 verbose_name='Проект')
+    is_deleted = models.BooleanField(default=False, verbose_name='Удалена')
 
     def __str__(self):
         return self.summary
