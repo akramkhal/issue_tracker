@@ -1,321 +1,349 @@
 [
-  {
-    "model": "webapp.task",
-    "pk": 1,
-    "fields": {
-      "summary": "Создать страницу входа",
-      "description": "Сделать форму входа с полями логин и пароль, добавить проверку ошибок.",
-      "status": 1,
-      "created_at": "2026-11-08T14:55:05.695Z",
-      "updated_at": "2026-11-08T22:20:55.042Z",
-      "types": [
-        1,
-        2,
-        3
-      ]
-    }
-  },
-  {
-    "model": "webapp.task",
-    "pk": 2,
-    "fields": {
-      "summary": "Ошибка при сохранении задачи",
-      "description": "При пустом заголовке страница падает с ошибкой 500 вместо сообщения об ошибке.",
-      "status": 2,
-      "created_at": "2026-11-08T14:55:20.349Z",
-      "updated_at": "2026-11-08T22:20:51.486Z",
-      "types": [
-        2
-      ]
-    }
-  },
-  {
-    "model": "webapp.task",
-    "pk": 3,
-    "fields": {
-      "summary": "Добавить поиск по задачам",
-      "description": "Поиск по краткому описанию на главной странице.",
-      "status": 1,
-      "created_at": "2026-11-08T14:55:33.287Z",
-      "updated_at": "2026-11-08T22:20:49.452Z",
-      "types": [
-        1,
-        3
-      ]
-    }
-  },
-  {
-    "model": "webapp.task",
-    "pk": 4,
-    "fields": {
-      "summary": "Настроить фикстуры",
-      "description": "",
-      "status": 3,
-      "created_at": "2026-11-08T14:55:50.496Z",
-      "updated_at": "2026-11-08T22:20:47.030Z",
-      "types": [
-        3
-      ]
-    }
-  },
-  {
-    "model": "webapp.task",
-    "pk": 5,
-    "fields": {
-      "summary": "Кнопка удаления не работает",
-      "description": "После нажатия на кнопку «Удалить» ничего не происходит.",
-      "status": 1,
-      "created_at": "2026-11-08T14:56:00.644Z",
-      "updated_at": "2026-11-08T22:20:45.098Z",
-      "types": [
-        1,
-        2
-      ]
-    }
-  },
-  {
-    "model": "webapp.task",
-    "pk": 6,
-    "fields": {
-      "summary": "Ошибка в форме входа",
-      "description": "Кнопка «Войти» не реагирует. Нужно исправить и улучшить дизайн.",
-      "status": 1,
-      "created_at": "2026-11-08T22:35:50.897Z",
-      "updated_at": "2026-11-08T22:35:50.898Z",
-      "types": [
-        2,
-        3
-      ]
-    }
-  },
-  {
-    "model": "webapp.tasktype",
-    "pk": 1,
-    "fields": {
-      "name": "Task"
-    }
-  },
-  {
-    "model": "webapp.tasktype",
-    "pk": 2,
-    "fields": {
-      "name": "Bug"
-    }
-  },
-  {
-    "model": "webapp.tasktype",
-    "pk": 3,
-    "fields": {
-      "name": "Enhancement"
-    }
-  },
-  {
-    "model": "webapp.taskstatus",
-    "pk": 1,
-    "fields": {
-      "name": "New"
-    }
-  },
-  {
-    "model": "webapp.taskstatus",
-    "pk": 2,
-    "fields": {
-      "name": "In Progress"
-    }
-  },
-  {
-    "model": "webapp.taskstatus",
-    "pk": 3,
-    "fields": {
-      "name": "Done"
-    }
-  },
-  {
-    "model": "auth.user",
-    "pk": 1,
-    "fields": {
-      "password": "pbkdf2_sha256$1500000$axNDEnsgSWhWhWLulLGo7T$6iganoHTeicLsae86LUlL32e5tCSrqPzrYn/T4QuPZo=",
-      "last_login": "2026-11-08T14:52:14.814Z",
-      "is_superuser": true,
-      "username": "admin",
-      "first_name": "",
-      "last_name": "",
-      "email": "",
-      "is_staff": true,
-      "is_active": true,
-      "date_joined": "2026-11-08T14:51:51.219Z",
-      "groups": [],
-      "user_permissions": []
-    }
-  },
-  {
-    "model": "webapp.task",
-    "pk": 7,
-    "fields": {
-      "summary": "Bug: не сохраняется фильтр",
-      "description": "После перезагрузки страницы выбранный фильтр сбрасывается.",
-      "status": 1,
-      "created_at": "2026-10-01T09:00:00Z",
-      "updated_at": "2026-10-25T10:15:00Z",
-      "types": [
-        2
-      ]
-    }
-  },
-  {
-    "model": "webapp.task",
-    "pk": 8,
-    "fields": {
-      "summary": "Исправить BUG с датой создания",
-      "description": "Дата создания показывается в UTC вместо местного времени.",
-      "status": 2,
-      "created_at": "2026-10-20T08:30:00Z",
-      "updated_at": "2026-11-02T14:00:00Z",
-      "types": [
-        1
-      ]
-    }
-  },
-  {
-    "model": "webapp.task",
-    "pk": 9,
-    "fields": {
-      "summary": "Добавить debug-логи",
-      "description": "Логировать все запросы к базе данных в режиме разработки.",
-      "status": 1,
-      "created_at": "2026-09-05T12:00:00Z",
-      "updated_at": "2026-09-18T16:40:00Z",
-      "types": [
-        3
-      ]
-    }
-  },
-  {
-    "model": "webapp.task",
-    "pk": 10,
-    "fields": {
-      "summary": "Обновить README",
-      "description": "Описать установку проекта, миграции и загрузку фикстур.",
-      "status": 3,
-      "created_at": "2026-08-20T10:00:00Z",
-      "updated_at": "2026-09-10T11:00:00Z",
-      "types": [
-        1
-      ]
-    }
-  },
-  {
-    "model": "webapp.task",
-    "pk": 11,
-    "fields": {
-      "summary": "Настроить CI",
-      "description": "Запускать проверку PEP8 и тесты при каждом push.",
-      "status": 3,
-      "created_at": "2026-10-10T09:00:00Z",
-      "updated_at": "2026-10-28T17:20:00Z",
-      "types": [
-        1,
-        3
-      ]
-    }
-  },
-  {
-    "model": "webapp.task",
-    "pk": 12,
-    "fields": {
-      "summary": "Падает страница 404",
-      "description": "Несуществующая задача открывает ошибку 500 вместо 404.",
-      "status": 3,
-      "created_at": "2026-07-25T13:00:00Z",
-      "updated_at": "2026-08-15T09:30:00Z",
-      "types": [
-        2
-      ]
-    }
-  },
-  {
-    "model": "webapp.task",
-    "pk": 13,
-    "fields": {
-      "summary": "Исправить баг с пагинацией",
-      "description": "На последней странице списка задачи дублируются.",
-      "status": 3,
-      "created_at": "2026-10-22T10:00:00Z",
-      "updated_at": "2026-11-05T12:45:00Z",
-      "types": [
-        2
-      ]
-    }
-  },
-  {
-    "model": "webapp.task",
-    "pk": 14,
-    "fields": {
-      "summary": "Добавить фильтр по статусу",
-      "description": "Добавить фильтр по статусу",
-      "status": 2,
-      "created_at": "2026-10-15T08:00:00Z",
-      "updated_at": "2026-10-30T15:10:00Z",
-      "types": [
-        3
-      ]
-    }
-  },
-  {
-    "model": "webapp.task",
-    "pk": 15,
-    "fields": {
-      "summary": "Сделать тёмную тему",
-      "description": "Переключатель светлой и тёмной темы в меню.",
-      "status": 1,
-      "created_at": "2026-09-01T10:00:00Z",
-      "updated_at": "2026-09-20T18:00:00Z",
-      "types": [
-        3
-      ]
-    }
-  },
-  {
-    "model": "webapp.task",
-    "pk": 16,
-    "fields": {
-      "summary": "Проверить валидацию формы",
-      "description": "Проверить валидацию формы",
-      "status": 1,
-      "created_at": "2026-10-27T11:00:00Z",
-      "updated_at": "2026-11-01T09:05:00Z",
-      "types": [
-        1,
-        2
-      ]
-    }
-  },
-  {
-    "model": "webapp.task",
-    "pk": 17,
-    "fields": {
-      "summary": "Удалить старые миграции",
-      "description": "Объединить миграции после замены типа на многие-ко-многим.",
-      "status": 3,
-      "created_at": "2026-07-10T10:00:00Z",
-      "updated_at": "2026-07-30T12:00:00Z",
-      "types": [
-        1
-      ]
-    }
-  },
-  {
-    "model": "webapp.task",
-    "pk": 18,
-    "fields": {
-      "summary": "Ошибка кодировки в фикстуре",
-      "description": "Русский текст в dump.json сохраняется как \\u-последовательности.",
-      "status": 2,
-      "created_at": "2026-10-05T09:00:00Z",
-      "updated_at": "2026-10-12T13:30:00Z",
-      "types": [
-        2
-      ]
-    }
+{
+  "model": "webapp.task",
+  "pk": 1,
+  "fields": {
+    "summary": "Создать страницу входа",
+    "description": "Сделать форму входа с полями логин и пароль, добавить проверку ошибок.",
+    "status": 1,
+    "created_at": "2026-11-08T14:55:05.695Z",
+    "updated_at": "2026-11-08T22:20:55.042Z",
+    "project": 1,
+    "types": [
+      1,
+      2,
+      3
+    ]
   }
+},
+{
+  "model": "webapp.task",
+  "pk": 2,
+  "fields": {
+    "summary": "Ошибка при сохранении задачи",
+    "description": "При пустом заголовке страница падает с ошибкой 500 вместо сообщения об ошибке.",
+    "status": 2,
+    "created_at": "2026-11-08T14:55:20.349Z",
+    "updated_at": "2026-11-08T22:20:51.486Z",
+    "project": 1,
+    "types": [
+      2
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 3,
+  "fields": {
+    "summary": "Добавить поиск по задачам",
+    "description": "Поиск по краткому описанию на главной странице.",
+    "status": 1,
+    "created_at": "2026-11-08T14:55:33.287Z",
+    "updated_at": "2026-11-08T22:20:49.452Z",
+    "project": 1,
+    "types": [
+      1,
+      3
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 4,
+  "fields": {
+    "summary": "Настроить фикстуры",
+    "description": "",
+    "status": 3,
+    "created_at": "2026-11-08T14:55:50.496Z",
+    "updated_at": "2026-11-08T22:20:47.030Z",
+    "project": 1,
+    "types": [
+      3
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 5,
+  "fields": {
+    "summary": "Кнопка удаления не работает",
+    "description": "После нажатия на кнопку «Удалить» ничего не происходит.",
+    "status": 1,
+    "created_at": "2026-11-08T14:56:00.644Z",
+    "updated_at": "2026-11-08T22:20:45.098Z",
+    "project": 1,
+    "types": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 6,
+  "fields": {
+    "summary": "Ошибка в форме входа",
+    "description": "Кнопка «Войти» не реагирует. Нужно исправить и улучшить дизайн.",
+    "status": 1,
+    "created_at": "2026-11-08T22:35:50.897Z",
+    "updated_at": "2026-11-08T22:35:50.898Z",
+    "project": 1,
+    "types": [
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 7,
+  "fields": {
+    "summary": "Bug: не сохраняется фильтр",
+    "description": "После перезагрузки страницы выбранный фильтр сбрасывается.",
+    "status": 1,
+    "created_at": "2026-10-01T09:00:00Z",
+    "updated_at": "2026-10-25T10:15:00Z",
+    "project": 1,
+    "types": [
+      2
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 8,
+  "fields": {
+    "summary": "Исправить BUG с датой создания",
+    "description": "Дата создания показывается в UTC вместо местного времени.",
+    "status": 2,
+    "created_at": "2026-10-20T08:30:00Z",
+    "updated_at": "2026-11-02T14:00:00Z",
+    "project": 1,
+    "types": [
+      1
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 9,
+  "fields": {
+    "summary": "Добавить debug-логи",
+    "description": "Логировать все запросы к базе данных в режиме разработки.",
+    "status": 1,
+    "created_at": "2026-09-05T12:00:00Z",
+    "updated_at": "2026-09-18T16:40:00Z",
+    "project": 1,
+    "types": [
+      3
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 10,
+  "fields": {
+    "summary": "Обновить README",
+    "description": "Описать установку проекта, миграции и загрузку фикстур.",
+    "status": 3,
+    "created_at": "2026-08-20T10:00:00Z",
+    "updated_at": "2026-09-10T11:00:00Z",
+    "project": 1,
+    "types": [
+      1
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 11,
+  "fields": {
+    "summary": "Настроить CI",
+    "description": "Запускать проверку PEP8 и тесты при каждом push.",
+    "status": 3,
+    "created_at": "2026-10-10T09:00:00Z",
+    "updated_at": "2026-10-28T17:20:00Z",
+    "project": 1,
+    "types": [
+      1,
+      3
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 12,
+  "fields": {
+    "summary": "Падает страница 404",
+    "description": "Несуществующая задача открывает ошибку 500 вместо 404.",
+    "status": 3,
+    "created_at": "2026-07-25T13:00:00Z",
+    "updated_at": "2026-08-15T09:30:00Z",
+    "project": 1,
+    "types": [
+      2
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 13,
+  "fields": {
+    "summary": "Исправить баг с пагинацией",
+    "description": "На последней странице списка задачи дублируются.",
+    "status": 3,
+    "created_at": "2026-10-22T10:00:00Z",
+    "updated_at": "2026-11-05T12:45:00Z",
+    "project": 1,
+    "types": [
+      2
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 14,
+  "fields": {
+    "summary": "Добавить фильтр по статусу",
+    "description": "Добавить фильтр по статусу",
+    "status": 2,
+    "created_at": "2026-10-15T08:00:00Z",
+    "updated_at": "2026-10-30T15:10:00Z",
+    "project": 1,
+    "types": [
+      3
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 15,
+  "fields": {
+    "summary": "Сделать тёмную тему",
+    "description": "Переключатель светлой и тёмной темы в меню.",
+    "status": 1,
+    "created_at": "2026-09-01T10:00:00Z",
+    "updated_at": "2026-09-20T18:00:00Z",
+    "project": 1,
+    "types": [
+      3
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 16,
+  "fields": {
+    "summary": "Проверить валидацию формы",
+    "description": "Проверить валидацию формы",
+    "status": 1,
+    "created_at": "2026-10-27T11:00:00Z",
+    "updated_at": "2026-11-01T09:05:00Z",
+    "project": 1,
+    "types": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 17,
+  "fields": {
+    "summary": "Удалить старые миграции",
+    "description": "Объединить миграции после замены типа на многие-ко-многим.",
+    "status": 3,
+    "created_at": "2026-07-10T10:00:00Z",
+    "updated_at": "2026-07-30T12:00:00Z",
+    "project": 1,
+    "types": [
+      1
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 18,
+  "fields": {
+    "summary": "Ошибка кодировки в фикстуре",
+    "description": "Русский текст в dump.json сохраняется как \\u-последовательности.",
+    "status": 2,
+    "created_at": "2026-10-05T09:00:00Z",
+    "updated_at": "2026-10-12T13:30:00Z",
+    "project": 1,
+    "types": [
+      2
+    ]
+  }
+},
+{
+  "model": "webapp.tasktype",
+  "pk": 1,
+  "fields": {
+    "name": "Task"
+  }
+},
+{
+  "model": "webapp.tasktype",
+  "pk": 2,
+  "fields": {
+    "name": "Bug"
+  }
+},
+{
+  "model": "webapp.tasktype",
+  "pk": 3,
+  "fields": {
+    "name": "Enhancement"
+  }
+},
+{
+  "model": "webapp.taskstatus",
+  "pk": 1,
+  "fields": {
+    "name": "New"
+  }
+},
+{
+  "model": "webapp.taskstatus",
+  "pk": 2,
+  "fields": {
+    "name": "In Progress"
+  }
+},
+{
+  "model": "webapp.taskstatus",
+  "pk": 3,
+  "fields": {
+    "name": "Done"
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 1,
+  "fields": {
+    "start_date": "2026-11-12",
+    "end_date": null,
+    "name": "Создание модели для предсказания банкротств",
+    "description": "Модель предсказывает банкротство компании за 2 квартала с точностью 97%"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$1500000$axNDEnsgSWhWhWLulLGo7T$6iganoHTeicLsae86LUlL32e5tCSrqPzrYn/T4QuPZo=",
+    "last_login": "2026-11-12T22:05:27.630Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-11-08T14:51:51.219Z",
+    "groups": [],
+    "user_permissions": []
+  }
+}
 ]

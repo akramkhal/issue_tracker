@@ -5,7 +5,7 @@ from webapp.forms import TaskForm
 
 
 class IndexView(TemplateView):
-    template_name = 'index.html'
+    template_name = 'task/index.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -14,7 +14,7 @@ class IndexView(TemplateView):
 
 
 class TaskDetailView(TemplateView):
-    template_name = 'task_detail.html'
+    template_name = 'task/task_detail.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -23,7 +23,7 @@ class TaskDetailView(TemplateView):
 
 
 class TaskCreateView(View):
-    template_name = 'task_create.html'
+    template_name = 'task/task_create.html'
 
     def get(self, request, *args, **kwargs):
         form = TaskForm()
@@ -41,7 +41,7 @@ class TaskCreateView(View):
 
 
 class TaskUpdateView(View):
-    template_name = 'task_update.html'
+    template_name = 'task/task_update.html'
 
     def get(self, request, *args, **kwargs):
         task = get_object_or_404(Task, pk=kwargs['pk'])
@@ -58,7 +58,7 @@ class TaskUpdateView(View):
 
 
 class TaskDeleteView(View):
-    template_name = 'task_delete.html'
+    template_name = 'task/task_delete.html'
 
     def get(self, request, *args, **kwargs):
         task = get_object_or_404(Task, pk=kwargs['pk'])
