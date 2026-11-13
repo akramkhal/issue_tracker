@@ -3,10 +3,15 @@
 {% block content %}
     <h1>Список проектов</h1>
 
+    {% include 'partial/search.html' %}
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
         {% for project in projects %}
             <div class="col">
                 {% include 'partial/project_card.html' %}
+            </div>
+        {% empty %}
+            <div class="col-12">
+                <div class="col alert alert-info"> Проекты не найдены</div>
             </div>
         {% endfor %}
     </div>
