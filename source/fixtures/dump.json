@@ -9,6 +9,7 @@
     "created_at": "2026-11-08T14:55:05.695Z",
     "updated_at": "2026-11-08T22:20:55.042Z",
     "project": 1,
+    "is_deleted": false,
     "types": [
       1,
       2,
@@ -26,6 +27,7 @@
     "created_at": "2026-11-08T14:55:20.349Z",
     "updated_at": "2026-11-08T22:20:51.486Z",
     "project": 1,
+    "is_deleted": false,
     "types": [
       2
     ]
@@ -41,6 +43,7 @@
     "created_at": "2026-11-08T14:55:33.287Z",
     "updated_at": "2026-11-08T22:20:49.452Z",
     "project": 1,
+    "is_deleted": false,
     "types": [
       1,
       3
@@ -57,6 +60,7 @@
     "created_at": "2026-11-08T14:55:50.496Z",
     "updated_at": "2026-11-08T22:20:47.030Z",
     "project": 1,
+    "is_deleted": false,
     "types": [
       3
     ]
@@ -72,6 +76,7 @@
     "created_at": "2026-11-08T14:56:00.644Z",
     "updated_at": "2026-11-08T22:20:45.098Z",
     "project": 1,
+    "is_deleted": false,
     "types": [
       1,
       2
@@ -88,6 +93,7 @@
     "created_at": "2026-11-08T22:35:50.897Z",
     "updated_at": "2026-11-08T22:35:50.898Z",
     "project": 1,
+    "is_deleted": false,
     "types": [
       2,
       3
@@ -104,6 +110,7 @@
     "created_at": "2026-10-01T09:00:00Z",
     "updated_at": "2026-10-25T10:15:00Z",
     "project": 1,
+    "is_deleted": false,
     "types": [
       2
     ]
@@ -119,6 +126,7 @@
     "created_at": "2026-10-20T08:30:00Z",
     "updated_at": "2026-11-02T14:00:00Z",
     "project": 1,
+    "is_deleted": false,
     "types": [
       1
     ]
@@ -134,6 +142,7 @@
     "created_at": "2026-09-05T12:00:00Z",
     "updated_at": "2026-09-18T16:40:00Z",
     "project": 1,
+    "is_deleted": false,
     "types": [
       3
     ]
@@ -149,6 +158,7 @@
     "created_at": "2026-08-20T10:00:00Z",
     "updated_at": "2026-09-10T11:00:00Z",
     "project": 1,
+    "is_deleted": false,
     "types": [
       1
     ]
@@ -164,6 +174,7 @@
     "created_at": "2026-10-10T09:00:00Z",
     "updated_at": "2026-10-28T17:20:00Z",
     "project": 1,
+    "is_deleted": false,
     "types": [
       1,
       3
@@ -180,6 +191,7 @@
     "created_at": "2026-07-25T13:00:00Z",
     "updated_at": "2026-08-15T09:30:00Z",
     "project": 1,
+    "is_deleted": false,
     "types": [
       2
     ]
@@ -195,6 +207,7 @@
     "created_at": "2026-10-22T10:00:00Z",
     "updated_at": "2026-11-05T12:45:00Z",
     "project": 1,
+    "is_deleted": false,
     "types": [
       2
     ]
@@ -210,6 +223,7 @@
     "created_at": "2026-10-15T08:00:00Z",
     "updated_at": "2026-10-30T15:10:00Z",
     "project": 1,
+    "is_deleted": false,
     "types": [
       3
     ]
@@ -225,6 +239,7 @@
     "created_at": "2026-09-01T10:00:00Z",
     "updated_at": "2026-09-20T18:00:00Z",
     "project": 1,
+    "is_deleted": false,
     "types": [
       3
     ]
@@ -240,6 +255,7 @@
     "created_at": "2026-10-27T11:00:00Z",
     "updated_at": "2026-11-01T09:05:00Z",
     "project": 1,
+    "is_deleted": false,
     "types": [
       1,
       2
@@ -256,6 +272,7 @@
     "created_at": "2026-07-10T10:00:00Z",
     "updated_at": "2026-07-30T12:00:00Z",
     "project": 1,
+    "is_deleted": false,
     "types": [
       1
     ]
@@ -271,6 +288,7 @@
     "created_at": "2026-10-05T09:00:00Z",
     "updated_at": "2026-10-12T13:30:00Z",
     "project": 1,
+    "is_deleted": false,
     "types": [
       2
     ]
@@ -326,6 +344,66 @@
     "end_date": null,
     "name": "Создание модели для предсказания банкротств",
     "description": "Модель предсказывает банкротство компании за 2 квартала с точностью 97%"
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 2,
+  "fields": {
+    "start_date": "2026-09-01",
+    "end_date": "2026-12-31",
+    "name": "Интернет-магазин одежды",
+    "description": "Каталог, корзина и оплата картой"
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 3,
+  "fields": {
+    "start_date": "2026-08-15",
+    "end_date": null,
+    "name": "Мобильное приложение банка",
+    "description": "Переводы, история операций и уведомления"
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 4,
+  "fields": {
+    "start_date": "2026-07-01",
+    "end_date": "2026-10-30",
+    "name": "CRM для отдела продаж",
+    "description": "Учёт клиентов, сделок и звонков"
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 5,
+  "fields": {
+    "start_date": "2026-10-05",
+    "end_date": null,
+    "name": "Сайт школы программирования",
+    "description": "Расписание курсов и запись студентов"
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 6,
+  "fields": {
+    "start_date": "2026-06-20",
+    "end_date": "2026-09-01",
+    "name": "Чат-бот поддержки",
+    "description": "Ответы на частые вопросы клиентов"
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 7,
+  "fields": {
+    "start_date": "2026-11-01",
+    "end_date": null,
+    "name": "Аналитика продаж",
+    "description": "Отчёты и графики по продажам за квартал"
   }
 },
 {
