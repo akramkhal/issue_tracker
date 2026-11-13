@@ -1,0 +1,10 @@
+<div class="card h-100">
+    <div class="card-body">
+        <h5 class="card-title">{{ project.name }}</h5>
+        <p class="text-muted small mb-2">
+            {{ project.start_date|date:"d.m.Y" }} — {{ project.end_date|date:"d.m.Y"|default:"не указана" }}
+        </p>
+        <p class="card-text">{{ project.description|truncatewords:15 }}</p>
+        <a href="#" class="btn btn-outline-primary btn-sm">Подробнее</a>
+    </div>
+</div>
