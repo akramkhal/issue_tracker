@@ -2,6 +2,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404
 from django.urls import reverse
 from django.views.generic import DetailView, CreateView, UpdateView, DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from webapp.forms import TaskForm
 from webapp.models import Task, Project
@@ -14,7 +15,7 @@ class TaskDetailView(DetailView):
         return Task.objects.filter(is_deleted=False)
 
 
-class TaskCreateView(CreateView):
+class TaskCreateView(LoginRequiredMixin, CreateView):
     model = Task
     form_class = TaskForm
     template_name = 'task/task_create.html'
@@ -36,7 +37,7 @@ class TaskCreateView(CreateView):
         return reverse('project_detail', kwargs={'pk': self.project.pk})
 
 
-class TaskUpdateView(UpdateView):
+class TaskUpdateView(LoginRequiredMixin, UpdateView):
     form_class = TaskForm
     template_name = 'task/task_update.html'
 
@@ -47,7 +48,7 @@ class TaskUpdateView(UpdateView):
         return reverse('task_detail', kwargs={'pk': self.object.pk})
 
 
-class TaskDeleteView(DeleteView):
+class TaskDeleteView(LoginRequiredMixin, DeleteView):
     template_name = 'task/task_delete.html'
 
     def get_queryset(self):
