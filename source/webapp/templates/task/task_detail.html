@@ -13,10 +13,11 @@
                 Обновлено: {{ task.updated_at|date:"d.m.Y H:i" }}</p>
                 <p class="small">Проект: <a href="{% url 'project_detail' task.project.pk %}">{{ task.project.name }}</a></p>
                 <a href="{% url 'project_detail' task.project.pk %}" class="btn btn-outline-primary btn-sm">Назад</a>
+                {% if user.is_authenticated %}
                 <a href="{% url 'task_update' task.pk %}" class="btn btn-success btn-sm">Обновить</a>
                 <a href="{% url 'task_delete' task.pk %}" class="btn btn-danger btn-sm">Удалить</a>
+                {% endif %}
             </div>
-        </div>
     </div>
 </div>
 {% endblock %}
