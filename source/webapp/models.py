@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 from webapp.validators import validate_capitalized, validate_min_length
 
 
@@ -50,6 +51,8 @@ class Project(models.Model):
     end_date = models.DateField(null=True, blank=True, verbose_name='Дата окончания')
     name = models.CharField(max_length=100, verbose_name='Название')
     description = models.TextField(max_length=500, verbose_name='Описание')
+    users = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='projects', blank=True,
+                                   verbose_name='Пользователи')
 
     def __str__(self):
         return self.name

@@ -4,7 +4,7 @@ from django.utils.http import urlencode
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-from webapp.forms import SearchForm, ProjectForm
+from webapp.forms import SearchForm, ProjectForm, ProjectUsersForm
 from webapp.models import Project
 
 
@@ -61,6 +61,11 @@ class ProjectCreateView(LoginRequiredMixin, CreateView):
     form_class = ProjectForm
     template_name = 'project/project_create.html'
 
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        self.object.users.add(self.request.user)
+        return response
+
     def get_success_url(self):
         return reverse('project_detail', kwargs={'pk': self.object.pk})
 
@@ -78,3 +83,12 @@ class ProjectDeleteView(LoginRequiredMixin, DeleteView):
     model = Project
     template_name = 'project/project_delete.html'
     success_url = reverse_lazy('index')
+
+
+class ProjectUsersUpdateView(LoginRequiredMixin, UpdateView):
+    model = Project
+    form_class = ProjectUsersForm
+    template_name = 'project/project_users.html'
+
+    def get_success_url(self):
+        return reverse('project_detail', kwargs={'pk': self.object.pk})
