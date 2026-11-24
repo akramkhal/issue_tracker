@@ -6,7 +6,9 @@
         <div class="d-flex align-items-center gap-3">
             {% if user.is_authenticated %}
                 <a class="nav-link" href="{% url 'project_create' %}">
+                {% if perms.webapp.add_project %}
                     <i class="bi bi-folder-plus me-2"></i>Добавить проект
+                {% endif %}
                 </a>
                 <span class="navbar-text">Привет, {{ user.username }}!</span>
                 <form method="post" action="{% url 'accounts:logout' %}">
