@@ -57,6 +57,12 @@ class Project(models.Model):
     def __str__(self):
         return self.name
 
+    def is_member(self, user):
+        return user.is_superuser or self.users.filter(pk=user.pk).exists()
+
     class Meta:
         verbose_name = 'Проект'
         verbose_name_plural = 'Проекты'
+        permissions = [
+            ('change_project_users', 'Может добавлять и удалять пользователей проекта'),
+        ]
