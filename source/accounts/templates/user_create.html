@@ -5,6 +5,10 @@
         <div class="col-md-6 col-lg-5">
             <h1 class="h3 mb-3">Регистрация</h1>
             {% include 'partial/form.html' with button_value='Зарегистрироваться' %}
+            <p class="small mt-3">
+                Уже есть аккаунт?
+                <a href="{% url 'accounts:login' %}{% if request.GET.next %}?next={{ request.GET.next|urlencode }}{% endif %}">Войти</a>
+            </p>
         </div>
     </div>
 {% endblock %}
