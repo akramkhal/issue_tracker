@@ -48,6 +48,7 @@ class TaskCreateView(PermissionRequiredMixin, CreateView):
 
 class TaskUpdateView(PermissionRequiredMixin, UpdateView):
     permission_required = 'webapp.change_task'
+    form_class = TaskForm
     template_name = 'task/task_update.html'
 
     def get_queryset(self):
@@ -62,6 +63,7 @@ class TaskUpdateView(PermissionRequiredMixin, UpdateView):
 
 class TaskDeleteView(PermissionRequiredMixin, DeleteView):
     permission_required = 'webapp.delete_task'
+    template_name = 'task/task_delete.html'
 
     def get_queryset(self):
         return Task.objects.filter(is_deleted=False)
